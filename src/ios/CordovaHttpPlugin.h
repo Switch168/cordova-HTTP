@@ -8,8 +8,10 @@
 - (void)acceptAllCerts:(CDVInvokedUrlCommand*)command;
 - (void)validateDomainName:(CDVInvokedUrlCommand*)command;
 - (void)post:(CDVInvokedUrlCommand*)command;
+- (void)postJson:(CDVInvokedUrlCommand*)command;
 - (void)get:(CDVInvokedUrlCommand*)command;
 - (void)uploadFile:(CDVInvokedUrlCommand*)command;
 - (void)downloadFile:(CDVInvokedUrlCommand*)command;
-
+- (void)put:(CDVInvokedUrlCommand*)command;
+- (void)delete:(CDVInvokedUrlCommand*)command;
 @end
