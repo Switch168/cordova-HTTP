@@ -16,20 +16,20 @@ import android.util.Log;
 
 import com.github.kevinsawicki.http.HttpRequest;
 import com.github.kevinsawicki.http.HttpRequest.HttpRequestException;
- 
+
 public class CordovaHttpPostJson extends CordovaHttp implements Runnable {
-    
+
     public CordovaHttpPostJson(String urlString, JSONObject jsonObj, Map<String, String> headers, CallbackContext callbackContext) {
         super(urlString, jsonObj, headers, callbackContext);
     }
-    
+
     @Override
     public void run() {
         try {
             HttpRequest request = HttpRequest.post(this.getUrlString());
             this.setupSecurity(request);
-            request.headers(this.getHeaders());
             request.acceptJson();
+            request.headers(this.getHeaders());
             request.contentType(HttpRequest.CONTENT_TYPE_JSON);
             request.send(getJsonObject().toString());
             int code = request.code();
